@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Remove User
+    user:
+     name=najaf state=absent remove=yes force=yes
+     name=saleem state=absent remove=yes force=yes
+     name=tahir state=absent remove=yes force=yes
+     name=samar state=absent remove=yes force=yes
+     

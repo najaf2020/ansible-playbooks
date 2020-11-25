@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Create User
+    user: 
+     name=najaf password=najaf groups=wheel shell=/bin/bash
+     name=saleem password=saleem groups=wheel shell=/bin/bash

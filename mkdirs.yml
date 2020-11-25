@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: creating multiple dirs
+    file: path={{item}} state=directory
+    with_items:
+    - '/home/admin/najaf'
+    - '/home/admin/saleem'
+    - '/home/admin/samar'

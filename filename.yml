@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: create a file
+    file: path=/home/admin/ansible-playbook/najaf.txt state=touch
+       
+  
