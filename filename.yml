@@ -3,6 +3,6 @@
   become: true
   tasks:
   - name: create a file
-    file: path=/home/admin/ansible-playbook/najaf.txt state=touch
+    file: path=/home/admin/najaf.txt state=touch
        
   
