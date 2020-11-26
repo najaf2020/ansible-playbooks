@@ -1,0 +1,25 @@
+---
+- name: Deploying ansible user
+  hosts: all
+  tasks:
+
+    - name: create user boss
+      user: 
+        name: boss
+        groups: "{{ admin_group }}"
+        create_home: true
+        comment: "ansible mgm account"
+        expires: -1
+        password: "$6$AZ$9iLbS3PLwczGS/m91no2xCjdvbdGny6YKtU64SMQJrnygcKCB0a6yYFEnA1Vnd9X9QTJwy9hkpfl3jA/SciIs/"
+    - name: install ssh key
+      authorized_key:
+        user: boss
+        state: present
+        manage_dir: true
+        key: "{{ lookup('file','/home/admin/.ssh/id_rsa.pub') }}"
+    - name: setup sudo access
+      copy:
+        dest: /etc/sudoers.d/boss
+        content: 'boss ALL=(ALL) NOPASSWD: ALL'
+        validate: /usr/sbin/visudo -cf %s
+ 
