@@ -6,7 +6,7 @@
     - name: create user boss
       user: 
         name: boss
-        groups: "{{ admin_group }}"
+        groups: "{{ wheel }}"
         create_home: true
         comment: "ansible mgm account"
         expires: -1
